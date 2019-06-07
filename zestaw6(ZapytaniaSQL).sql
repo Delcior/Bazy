@@ -19,7 +19,7 @@ FROM
     ORD;
 --u¿ywam operatora konkatenacji '||' by po³¹czyæ dwie kolumny w jedn¹
 
---3 Podaæimiona i nazwiska pracowników na stanowisku Stock Clerk, którzy zarabiaj¹ wiêcej, ni¿ œrednia zarobków na stanowisku Warehouse Manager
+--3 Podaæ imiona i nazwiska pracowników na stanowisku Stock Clerk, którzy zarabiaj¹ wiêcej, ni¿ œrednia zarobków na stanowisku Warehouse Manager
 SELECT
     FIRST_NAME,
     LAST_NAME
@@ -40,7 +40,7 @@ WHERE
     SALARY < (SELECT AVG(SALARY) FROM EMP);
 --u¿ywam podzapytania by przyrównaæ zarobki do œrednich zarobków i zliczam funkcj¹ COUNT
 
---5 Podaæ listê pracowników o sta¿u pracy ponad 28lat(wg stanu na dzieñ 1 marca 2019), sortuj¹c wzglêdem daty zatrudnienia
+--5 Podaæ listê pracowników o sta¿u pracy ponad 28 lat (wg stanu na dzieñ 1 marca 2019), sortuj¹c wzglêdem daty zatrudnienia
 SELECT 
     FIRST_NAME,
     LAST_NAME
@@ -63,7 +63,7 @@ GROUP BY
     E1.ID;
 --u¿ywam SUM by zsumowaæ kwoty i GROP BY by pogrupowaæ
 
---7 Podaæ numer identyfikacyjny przedstawiciela handlowego, któryobs³u¿y³ zamówienia o maksymalnej ³¹cznej wartoœci.
+--7 Podaæ numer identyfikacyjny przedstawiciela handlowego, który obs³u¿y³ zamówienia o maksymalnej ³¹cznej wartoœci.
 --Wypisaæ równie¿³¹czn¹ kwotê tych zamówieñ
 SELECT 
     *
@@ -84,7 +84,7 @@ WHERE
     ROWNUM = 1;
 --wykorzystujê zapytanie z zad.6 jako podzapytanie by wyœwietlic pierwszy rekord
 
---8 Okreœliænazwisko przedstawiciela handlowegoz poprzedniego zadania.
+--8 Okreœliæ nazwisko przedstawiciela handlowegoz poprzedniego zadania.
 SELECT
     LAST_NAME
 FROM
@@ -120,8 +120,8 @@ ORDER BY
     START_DATE;
 --u¿ywam COUNT() by zliczyæ zgrupowane daty
 
---10 Sprawdziæ, których towarów brakuje na stanie inwentarza w którymkolwiek z magazynów oraz wyœwietliæ nazwy tylko tych, 
---które maj¹ komentarzuzasadniaj¹cy ich brak 
+--10 Sprawdziæ, których towarów brakuje na stanie inwentarza w którym kolwiek z magazynów oraz wyœwietliæ nazwy tylko tych, 
+--które maj¹ komentarz uzasadniaj¹cy 
 --(zabezpieczyæ siê przed przypadkiem, gdy nie bêdzie komentarza –wtedy nie nale¿y wyœwietlaæ nazwy produktu)
 SELECT
     P.Name

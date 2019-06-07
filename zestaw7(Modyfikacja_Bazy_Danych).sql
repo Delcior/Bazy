@@ -119,5 +119,5 @@ DELETE FROM emp
 WHERE
     id in (26);
 
---15 Skasowaæ tabelêregion_kopia
+--15 Skasowaæ tabelê region_kopia
 DROP TABLE region_kopia;

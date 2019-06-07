@@ -35,7 +35,7 @@ CREATE TABLE pozycja(
         REFERENCES zamowienia(orderID),
     quantity INTEGER not null
 );
---2.1 Dodaædo tabeli klient kolumnê umo¿liwiaj¹c¹ przechowywanie adresu email. 
+--2.1 Dodaæ do tabeli klient kolumnê umo¿liwiaj¹c¹ przechowywanie adresu email. 
 ALTER TABLE klient ADD (EMAIL VARCHAR(35) NULL);
 
 --2.2 Zmodyfikowaæ kolumnê addr_zip w ten sposób, aby mia³a nazwê addr_postalcode i umo¿liwia³a przechowywanie 7 znaków 

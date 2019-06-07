@@ -1,4 +1,4 @@
---1 Usunac wszystkie tabele znajduj¹ce siê na koncie serwera Oracle (napisac w³asny skrypt).
+--1 Usunac wszystkie tabele znajdujace siê na koncie serwera Oracle (napisac wlasny skrypt).
 DROP TABLE item cascade constraints;
 DROP TABLE inventory cascade constraints;
 DROP TABLE product cascade constraints;
@@ -90,7 +90,7 @@ FROM
 WHERE
     table_name in (select table_name from user_tables);
     
---6 Dodaæ kolejna tabele do projektu i wprowadzic w niej klucz obcy do kolumny jednej z istniejacych tabel.
+--6 Dodac kolejna tabele do projektu i wprowadzic w niej klucz obcy do kolumny jednej z istniejacych tabel.
 -- Zademonstrowac 3 sposoby tworzenia takiego ograniczenia
 CREATE TABLE cards (
     card_number          NUMBER(16, 0) PRIMARY KEY,
@@ -174,7 +174,7 @@ INSERT INTO cards VALUES(
 --9 Wyswietlic zawartosc wybranej tabeli.
 select * from emp;
 
---10 Dokonaæ proby zmiany wybranych danych wed³ug opracowanego przez siebie schematu
+--10 Dokonac proby zmiany wybranych danych wed³ug opracowanego przez siebie schematu
 update emp
   set first_name='Kacper'
     where ID=1;

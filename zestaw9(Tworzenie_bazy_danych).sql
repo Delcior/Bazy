@@ -1,5 +1,5 @@
---1 Opracowaæ model w³asnej bazy danych
---Stworzona przeze mnie baza w prosty sposób imituje bazê danych banku
+--1 Opracowac model wlasnej bazy danych
+--Stworzona przeze mnie baza w prosty sposób imituje baze danych banku
 
 CREATE TABLE accounts (     
   balance          NUMBER(14, 2) NOT NULL,     
@@ -39,7 +39,7 @@ CREATE TABLE transactions (
   src_account_number        NUMBER(26) NOT NULL,  
   dst_account_number        NUMBER(26) NOT NULL,
   emp_id                    NUMBER(7) 
---emp_id przyjmuje wartoœæ gdy transakcja by³a przeprowadzana przez danego pracownika w banku, gdy transakcja by³a wykonywana online jest wartoœæ NULL
+--emp_id przyjmuje wartosc gdy transakcja byla przeprowadzana przez danego pracownika w banku, gdy transakcja by³a wykonywana online jest wartosc NULL
  ); 
  
 ALTER TABLE transactions ADD CONSTRAINT transactions_pk PRIMARY KEY ( id );  

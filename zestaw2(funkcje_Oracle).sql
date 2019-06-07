@@ -84,7 +84,7 @@ WHERE
         RESTOCK_DATE IS NOT NULL
 ORDER BY
         RESTOCK_DATE;
---12 Zestawiæ daty zatrudnienia dla pracowników, którzy zostali przyjêci do pracyw 1991 roku.Pokazaænumer pracownika, datê rozpoczêcia pracy oraz tylko miesi¹c rozpoczêcia pracy.
+--12 Zestawiæ daty zatrudnienia dla pracowników, którzy zostali przyjêci do pracyw 1991 roku.Pokazaæ numer pracownika, datê rozpoczêcia pracy oraz tylko miesi¹c rozpoczêcia pracy.
 SELECT 
         ID,
         START_DATE,
@@ -93,7 +93,7 @@ FROM
         EMP
 WHERE
         TO_CHAR(START_DATE,'DD-MM-YYYY') LIKE '%91';
---13 Z tabeli ord wyœwietliænumer (id) orazdatê (date_ordered) wszystkichzamówieñ z³o¿onych przez przedstawiciela (sales_rep_id)o numerze 11.Datê przeformatowaæ tak,¿eby by³a wyœwietlana w postaci analogicznej do „08/92”.
+--13 Z tabeli ord wyœwietliæ numer (id) oraz datê (date_ordered) wszystkich zamówieñ z³o¿onych przez przedstawiciela (sales_rep_id)o numerze 11.Datê przeformatowaæ tak,¿eby by³a wyœwietlana w postaci analogicznej do „08/92”.
 SELECT 
         ID,
         TO_CHAR(DATE_ORDERED,'MM/RR')

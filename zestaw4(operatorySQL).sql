@@ -26,7 +26,7 @@ FROM
         EMP
 GROUP BY
         TITLE;
---4 Wyœwietliæ nazwy departamentów, w którychœrednie wynagrodzenie jest wiêksze ni¿ 1499(z³¹czyæ tabele dept i emp).
+--4 Wyœwietliæ nazwy departamentów, w których œrednie wynagrodzenie jest wiêksze ni¿ 1499(z³¹czyæ tabele dept i emp).
 SELECT 
         NAME,
         AVG(SALARY)
@@ -76,7 +76,7 @@ GROUP BY
 HAVING 
         PAYMENT_TYPE = 'CASH' AND
         TO_CHAR(TO_DATE(DATE_ORDERED,'YY/MM/DD')) LIKE '92/09%';
---7 Wyœwietliæpowtarzaj¹ce siê nazwiska pracowników
+--7 Wyœwietliæ powtarzaj¹ce siê nazwiska pracowników
 SELECT
         LAST_NAME
 FROM

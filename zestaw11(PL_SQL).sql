@@ -1,5 +1,5 @@
 --Utworzyæ anonimowy blok PL/SQL, w którymzadeklarowane zostan¹ 3 zmienne
---Zainicjowaæ zmiennedowolnymi wartoœciami, zaœ jedn¹znich okreœliæ jako CONSTANT. Wyœwietliæ w konsoli zadeklarowane zmienne 
+--Zainicjowaæ zmienne dowolnymi wartoœciami, zaœ jedn¹ z nich okreœliæ jako CONSTANT. Wyœwietliæ w konsoli zadeklarowane zmienne 
 DECLARE
     liczba CONSTANT NUMBER(10):=5;
     nazwa VARCHAR2(25):='Janek';
@@ -7,7 +7,7 @@ DECLARE
 BEGIN
     DBMS_OUTPUT.PUT_LINE(liczba||' '||nazwa||' '||dat);
 END;
--- Stworzyæ blok wyœwietlaj¹cy liczbêdni, tygodni i miesiêcy, które minê³yod okreœlonej daty z przesz³oœci
+-- Stworzyæ blok wyœwietlaj¹cy liczbêdni, tygodni i miesiêcy, które minê³y od okreœlonej daty z przesz³oœci
 DECLARE
     data_urodzin CONSTANT DATE := TO_DATE('17-07-1998', 'dd-mm-yyyy');
 BEGIN
@@ -16,7 +16,7 @@ BEGIN
     dbms_output.put_line('Liczba miesiêcy: ' || trunc(months_between(SYSDATE, data_urodzin)));
 END;
 
--- Napisaæ anonimowy blok PL/SQL, wyœwietlaj¹cy dane osobowe z tabeli emptych pracowników, którzy zarabiaj¹ najmniej i najwiêcej 
+-- Napisaæ anonimowy blok PL/SQL, wyœwietlaj¹cy dane osobowe z tabeli emp tych pracowników, którzy zarabiaj¹ najmniej i najwiêcej 
 DECLARE
     imie varchar(25);
     nazwisko varchar(25);
