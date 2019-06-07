@@ -1,4 +1,4 @@
---Z tabeli dept wyœwietlic wszystkie kolumny oraz wszystkie rekordy.
+--Z tabeli dept wyœwietlic wszystkie kolumny oraz wszystkie rekordy. 
 SELECT * FROM DEPT;
 
 --Wyœwietlic wszystkie identyfikatory departamentow, nazwiska pracowników oraz identyfikatory managerów z tabeli emp. 
@@ -7,7 +7,7 @@ SELECT dept_id "ID",last_name "Nazwisko",manager_id FROM EMP;
 --Wyœwietliæ roczne dochody wszystkich pracowników (wraz z nazwiskami tych pracowników). 
 SELECT SALARY*12 "Roczne wynagrodzenie",last_name "Nazwisko" FROM EMP;
 
---Wyœwietlic dane osobowe pracowników, zarobki miesiêczne, zarobki roczne doliczaj¹c premiê roczn¹ w wysokoœci 1000. 
+--Wyœwietlic dane osobowe pracowników, zarobki miesieczne, zarobki roczne doliczaj¹c premiê roczn¹ w wysokoœci 1000. 
 SELECT FIRST_NAME "Imiê",LAST_NAME "Nazwisko",SALARY "Zarobki miesiêczne", SALARY*12+1000 "Roczne z premi¹" FROM EMP
 
 --Wyœwietlic dane osobowe pracownikow, zarobki miesieczne, zarobki roczne – doliczajac premie co miesiac w wysokosci 8%.
