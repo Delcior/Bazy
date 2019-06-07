@@ -6,7 +6,7 @@ FROM
         ORD
 WHERE
         TOTAL=(SELECT MAX(TOTAL) FROM ORD);
---2 Wyswietlic dane zamowienia o najmniejszej wartosci, za które zaplacono gotowk¹.
+--2 Wyswietlic dane zamowienia o najmniejszej wartosci, za które zaplacono gotowka.
 SELECT 
         ID,
         DATE_ORDERED,
@@ -17,7 +17,7 @@ FROM
 WHERE
         PAYMENT_TYPE='CASH' AND
         TOTAL = (SELECT MIN(TOTAL) FROM ORD);
---3 Wyœwietlic dane zamowien, ktorych kwota przekracza srednia wartosc wszystkich zamowien.
+--3 Wyswietlic dane zamowien, ktorych kwota przekracza srednia wartosc wszystkich zamowien.
 SELECT 
         ID,
         DATE_ORDERED,
@@ -35,7 +35,7 @@ FROM
         PRODUCT
 WHERE
         SUGGESTED_WHLSL_PRICE< (SELECT AVG(SUGGESTED_WHLSL_PRICE) FROM PRODUCT WHERE NAME like 'Prostar%');
---5 Okreœlic, ktorych towarow jest najwiecej w poszczegolnych magazynach (
+--5 Okreslic, ktorych towarow jest najwiecej w poszczegolnych magazynach (
 SELECT
         WAREHOUSE_ID,
         PRODUCT_ID,
@@ -68,7 +68,7 @@ WHERE
         I1.WAREHOUSE_ID=W.ID AND
         I1.PRODUCT_ID = P.ID AND
         AMOUNT_IN_STOCK = (SELECT MAX(AMOUNT_IN_STOCK) FROM INVENTORY I2 WHERE I1.WAREHOUSE_ID = I2.WAREHOUSE_ID);
---8 WySwietlic nazwy klientow (tabela customer), ktorzy nigdy nie zlozyli zamowienia.
+--8 Wyswietlic nazwy klientow (tabela customer), ktorzy nigdy nie zlozyli zamowienia.
 SELECT
         NAME
 FROM
@@ -86,7 +86,7 @@ FROM
 WHERE EXISTS
         (SELECT 1 FROM ORD O WHERE C.ID=O.CUSTOMER_ID) AND
         O.CUSTOMER_ID=C.ID;
---10 Sprawdzic powyzszy wynik za pomoc¹ pojedynczego zapytania odnoszacego sie tylko do tabeli ord, sortujac wzgledem numeru klienta
+--10 Sprawdzic powyzszy wynik za pomoca pojedynczego zapytania odnoszacego sie tylko do tabeli ord, sortujac wzgledem numeru klienta
 SELECT
         CUSTOMER_ID,
         ID
