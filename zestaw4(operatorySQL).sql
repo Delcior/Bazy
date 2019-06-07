@@ -1,4 +1,4 @@
---1 Wyœwietliæ ka¿d¹ dostêpna zdolnoœæ kredytow¹ oraz liczbêklientów przypisanych do konkretnej zdolnoœci kredytowej(tabela customer)
+--1 Wyœwietliæ ka¿d¹ dostêpna zdolnoœæ kredytow¹ oraz liczbê klientów przypisanych do konkretnej zdolnoœci kredytowej(tabela customer)
 SELECT 
         credit_rating,
         count(*) 
@@ -6,7 +6,7 @@ FROM
         CUSTOMER
 GROUP BY
         credit_rating;
---2 Wyœwietliæ stanowiska (pomin¹wszyvice dyrektorów)oraz ³¹cznezarobkimiesiêcznedla ka¿dego znich. Posortowaæwyniki wed³ug wartoœci rosn¹cych
+--2 Wyœwietliæ stanowiska (pomin¹wszy vice dyrektorów)oraz ³¹czne zarobki miesiêczne dla ka¿dego z nich. Posortowaæ wyniki wed³ug wartoœci rosn¹cych
 SELECT
         TITLE,
         SUM(SALARY)
@@ -39,7 +39,7 @@ GROUP BY
 HAVING 
         AVG(SALARY)>1499;
 --5 Wyœwietliæ szczegó³y zamówieñ zap³aconych gotówk¹(CASH), z³o¿onych wewrzeœniu 1992 roku. Pokazaæ równie¿ dane klienta sk³adaj¹cego zamówienie, nazwê zamawianego produktu, cenê sprzeda¿y orazliczbêsprzedanych produktów ka¿dego rodzaju. 
---Posortowaæ wed³ug numeruzamówienia oraz nazwy produktu.
+--Posortowaæ wed³ug numeru zamówienia oraz nazwy produktu.
 SELECT
         O.ID,
         C.NAME,
@@ -85,7 +85,7 @@ GROUP BY
         LAST_NAME
 HAVING 
         COUNT(*) >1;
---8 Wyœwietliæ hierarchie stanowisk w firmie, wypisuj¹cdane pracowników: imiê, nazwisko, stanowisko, identyfikator menad¿era oraz „poziom”, na którym znajdujesiê dane stanowisko.
+--8 Wyœwietliæ hierarchie stanowisk w firmie, wypisuj¹c dane pracowników: imiê, nazwisko, stanowisko, identyfikator menad¿era oraz „poziom”, na którym znajdujesiê dane stanowisko.
 -- Posortowaæ wed³ug "poziomu"
 SELECT 
         FIRST_NAME,
@@ -101,7 +101,7 @@ START WITH
         E.TITLE = 'President'
 ORDER BY
         LEVEL;
---9 Zmodyfikowaæ powy¿sze zapytanie tak, aby wyœwietliæ tylko osoby podleg³estanowisku VP, Operations.
+--9 Zmodyfikowaæ powy¿sze zapytanie tak, aby wyœwietliæ tylko osoby podleg³e stanowisku VP, Operations.
 SELECT 
         FIRST_NAME,
         LAST_NAME,
@@ -116,7 +116,7 @@ START WITH
         E.TITLE = 'VP, Operations'
 ORDER BY
         LEVEL;    
---10 Z tabeli departamentów wybraæidentyfikator regionu oraz nazwê departamentu,zsumowaæwynik zidentyfikatorem regionu oraz nazw¹ regionu z tabeli regionów.
+--10 Z tabeli departamentów wybraæ identyfikator regionu oraz nazwê departamentu,zsumowaæwynik zidentyfikatorem regionu oraz nazw¹ regionu z tabeli regionów.
 --Posortowaæwed³ug nazw.
 SELECT 
         REGION_ID,
@@ -130,7 +130,7 @@ FROM
         REGION
 ORDER BY 
         2;
---11 Zmodyfikowaæ powy¿sze zapytanie,wyœwietlaj¹ctylko nazwy z obutabel.
+--11 Zmodyfikowaæ powy¿sze zapytanie,wyœwietlaj¹ctylko nazwy z obu tabel.
 SELECT 
         NAME
 FROM 
@@ -152,8 +152,8 @@ SELECT
         NAME
 FROM 
         REGION;
---13 Wyœwietliæ identyfikator departamentu oraz nazwisko pracownika, zsumowaæwynik z identyfikatorem regionu oraz nazw¹ regionu. 
---Posortowaæ wed³ug nazwiska /nazwy regionu.
+--13 Wyœwietliæ identyfikator departamentu oraz nazwisko pracownika, zsumowaæ wynik z identyfikatorem regionu oraz nazw¹ regionu. 
+--Posortowaæ wed³ug nazwiska/nazwy regionu.
 SELECT 
         D.ID,
         E.LAST_NAME
@@ -169,7 +169,7 @@ FROM
         REGION
 ORDER BY 
         2;
---14 Wyœwietliæz tabeli customer identyfikatory klientów, którzy z³o¿yli choæ jedno zamówienie widoczne wtabeli ord
+--14 Wyœwietliæ z tabeli customer identyfikatory klientów, którzy z³o¿yli choæ jedno zamówienie widoczne wtabeli ord
 SELECT 
         ID
 FROM

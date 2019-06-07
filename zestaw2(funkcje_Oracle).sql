@@ -1,4 +1,4 @@
---1 Wyœwietliæ imiê i nazwisko (tylko ma³ymiliterami), identyfikatoru¿ytkownika (pierwsza litera wielka, pozosta³e ma³e) oraz stanowisko (wielkie litery) dla wszystkich zastêpców prezesa
+--1 Wyœwietlic imiê i nazwisko (tylko malymi literami), identyfikator uzytkownika (pierwsza litera wielka, pozosta³e male) oraz stanowisko (wielkie litery) dla wszystkich zastepcow prezesa
 SELECT 
         LOWER(FIRST_NAME),
 	LOWER(LAST_NAME),
@@ -9,7 +9,7 @@ FROM
 WHERE
         TITLE LIKE 'VP%';
         
---2 Wyœwietliæ imiê i nazwisko wszystkich pracowników,którzy nosz¹ nazwisko Patel.
+--2 Wyswietlic imie i nazwisko wszystkich pracownikow,ktorzy nosza nazwisko Patel.
 SELECT 
         FIRST_NAME,LAST_NAME
 FROM 
@@ -17,42 +17,42 @@ FROM
 WHERE
         UPPER(LAST_NAME) LIKE 'PATEL';
         
---3 Wyœwietliæ nazwê oraz pañstwo dla wszystkich klientów (tabela customer), którzy maj¹ zdolnoœæ kredytow¹ (credit_rating) na poziomie dobrym(GOOD). Skonkatenowaæze sob¹ nazwê oraz pañstwo.
+--3 Wyswietlic nazwê oraz panstwo dla wszystkich klientów (tabela customer), którzy maja zdolnosc kredytowa (credit_rating) na poziomie dobrym(GOOD). Skonkatenowac ze soba nazwe oraz panstwo.
 SELECT 
         NAME || ' - ' || COUNTRY  
 FROM 
         CUSTOMER
 WHERE
         CREDIT_RATING LIKE 'GOOD';
---4 Wyœwietliæ nazwê i jej d³ugoœæ dla wszystkich produktów, których pierwsze trzy litery nazwy s¹ równe ‘Ace’ 
+--4 Wyswietlic nazwe i jej dlugosc dla wszystkich produktow, ktorych pierwsze trzy litery nazwy s¹ równe ‘Ace’ 
 SELECT 
         NAME,LENGTH(NAME)
 FROM 
         PRODUCT
 WHERE
         NAME LIKE 'Ace%';
---5 Wyœwietliæ wartoœæ 41.5843 zaokr¹glon¹ do setnych czêœci u³amkowych, do wartoœci ca³kowitych oraz do ca³ych dziesi¹tek.
+--5 Wyswietlic wartosc 41.5843 zaokr¹glona do setnych czesci ulamkowych, do wartosci calkowitych oraz do calych dziesiatek.
 SELECT 
         ROUND(41.5843,2),
 	ROUND(41.5843),
 	ROUND(41.5843,-1)
 FROM 
         DUAL;
---6 Wyœwietliæ wartoœæ 41.5843 obciêt¹ do czêœcisetnych, wartoœci ca³kowitych orazdo ca³ych dziesi¹tek. 
+--6 Wyswietlic wartoœæ 41.5843 obcieta do czesci setnych, wartosci calkowitych oraz do calych dziesiatek. 
 SELECT 
         TRUNC(41.5843,2),
 	TRUNC(41.5843),
 	TRUNC(41.5843,-1)
 FROM 
         DUAL;
---7 Obliczyæ resztê z dzielenia pensji przez prowizjê (commission_pct) dlawszystkich pracowników, których poborys¹ wiêkszeni¿ 1380. Podaæ nazwiska tych pracowników
+--7 Obliczyæ reszte z dzielenia pensji przez prowizje (commission_pct) dla wszystkich pracownikow, ktorych pobory sa wieksze niz 1380. Podac nazwiska tych pracownikow
 SELECT 
         LAST_NAME,MOD(SALARY,(COMMISSION_PCT))
 FROM 
         EMP
 WHERE 
         SALARY > 1380 AND MOD(SALARY,(COMMISSION_PCT)) IS NOT NULL;
---8 Wyœwietliæ aktualn¹datê
+--8 Wyswietlic aktualna date
 SELECT TO_DATE(SYSDATE, 'DD-MM-YYYY') "AKTUALNA DATA"
      FROM DUAL;
 --9 Dla pracowników z departamentu 43 wyœwietliæ nazwisko oraz liczbê tygodni zatrudnienia w firmie

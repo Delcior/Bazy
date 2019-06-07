@@ -1,4 +1,4 @@
---1 Po³¹czyæze sob¹ 2 tabele–pracowników i departamentów,wyœwietlaj¹cnastêpuj¹ce informacje: dane osobowe pracownika, numer departamentu oraz jego nazwê.
+--1 Po³¹czyæ ze sob¹ 2 tabele–pracowników i departamentów,wyœwietlaj¹c nastêpuj¹ce informacje: dane osobowe pracownika, numer departamentu oraz jego nazwê.
 SELECT 
             E.LAST_NAME,
             E.FIRST_NAME,
@@ -38,7 +38,7 @@ FROM
 WHERE
             E.DEPT_ID=D.ID AND D.REGION_ID=R.ID AND 
             E.COMMISSION_PCT IS NOT NULL;
---5 Wyœwietliæ dane przedstawicieli handlowych, identyfikator pracownika (tabela emp) oraz nazwy klientów (wszystkich). Wyœwietliæte¿ nazwytych klientów, którzy nie maj¹ przypisanego przedstawiciela handlowego.
+--5 Wyœwietliæ dane przedstawicieli handlowych, identyfikator pracownika (tabela emp) oraz nazwy klientów (wszystkich). Wyœwietliæ te¿ nazwytych klientów, którzy nie maj¹ przypisanego przedstawiciela handlowego.
 SELECT
             NVL(TO_CHAR(E.LAST_NAME),'-'),
             NVL(TO_CHAR(E.ID),'-'),
@@ -93,7 +93,7 @@ SELECT
             MAX(LAST_NAME)
 FROM
             EMP;
---11 Wyœwietliæliczbê pracowników z dzia³u 31, którzy pobieraj¹ premiê
+--11 Wyœwietliæ liczbê pracowników z dzia³u 31, którzy pobieraj¹ premiê
 SELECT
             COUNT(*)
 FROM 

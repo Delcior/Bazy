@@ -1,4 +1,4 @@
---1 Usun¹æ wszystkie tabele znajduj¹ce siê na koncie serwera Oracle (napisaæw³asny skrypt).
+--1 Usunac wszystkie tabele znajduj¹ce siê na koncie serwera Oracle (napisac w³asny skrypt).
 DROP TABLE item cascade constraints;
 DROP TABLE inventory cascade constraints;
 DROP TABLE product cascade constraints;
@@ -21,7 +21,7 @@ DROP TABLE CUSTOMER CASCADE CONSTRAINTS;
 DROP TABLE ACCOUNTS CASCADE CONSTRAINTS;
 DROP TABLE EMP CASCADE CONSTRAINTS;
 DROP TABLE TRANSACTIONS CASCADE CONSTRAINTS;
---2 Utworzyæ tabele za pomoc¹ skryptu wygenerowanego w rozwi¹zaniu zestawu 9.
+--2 Utworzyc tabele za pomoca skryptu wygenerowanego w rozwiazaniu zestawu 9.
 CREATE TABLE accounts (     
   balance          NUMBER(14, 2) NOT NULL,     
   debt             INTEGER,    
@@ -60,17 +60,17 @@ CREATE TABLE transactions (
   src_account_number        NUMBER(26) NOT NULL,  
   dst_account_number        NUMBER(26) NOT NULL,
   emp_id                    NUMBER(7) 
---emp_id przyjmuje wartoœæ gdy transakcja by³a przeprowadzana przez danego pracownika w banku, gdy transakcja by³a wykonywana online jest wartoœæ NULL
+--emp_id przyjmuje wartosc gdy transakcja byla przeprowadzana przez danego pracownika w banku, gdy transakcja byla wykonywana online jest wartoœæ NULL
  ); 
  
 ALTER TABLE transactions ADD CONSTRAINT transactions_pk PRIMARY KEY ( id );  
 ALTER TABLE transactions ADD CONSTRAINT transactions_accounts_fk FOREIGN KEY ( accounts_account_number ) REFERENCES accounts ( account_number ); 
 ALTER TABLE transactions ADD CONSTRAINT emp_id_fk FOREIGN KEY ( emp_id)REFERENCES emp( id );
 
---3 Wylistowaæ nazwy wszystkich tabel.
+--3 Wylistowac nazwy wszystkich tabel.
 SELECT TABLE_NAME FROM USER_TABLES;
 
---4 Pokazaæ, jakie kolumny znajduj¹ siê w poszczególnych tabelach, a tak¿e ich parametry (t
+--4 Pokazac, jakie kolumny znajduja sie w poszczegolnych tabelach, a takze ich parametry 
 SELECT 
     table_name,
     data_type,
@@ -80,7 +80,7 @@ SELECT
 FROM
     user_tab_columns;
     
---5 Wyœwietliæ, jakie ograniczenia s¹ narzucone na poszczególne kolumny ka¿dej tabeli w projekcie
+--5 Wyswietlic, jakie ograniczenia sa narzucone na poszczegolne kolumny kazdej tabeli w projekcie
 SELECT 
     constraint_name,
     constraint_type,
@@ -90,8 +90,8 @@ FROM
 WHERE
     table_name in (select table_name from user_tables);
     
---6 Dodaæ kolejn¹ tabelê do projektu i wprowadziæ w niej klucz obcy do kolumny jednej z istniej¹cych tabel.
--- Zademonstrowaæ 3 sposoby tworzenia takiego ograniczenia
+--6 Dodaæ kolejna tabele do projektu i wprowadzic w niej klucz obcy do kolumny jednej z istniejacych tabel.
+-- Zademonstrowac 3 sposoby tworzenia takiego ograniczenia
 CREATE TABLE cards (
     card_number          NUMBER(16, 0) PRIMARY KEY,
     valid_thru               DATE NOT NULL,
@@ -111,13 +111,13 @@ ADD CONSTRAINT acc_num_fk
 FOREIGN KEY (account_number)
 REFERENCES accounts(account_number);
 
---7 W wybranej tabeli zdefiniowaæ „wewnêtrzne” ograniczenie klucza obcego (do kolumny tej samej tabeli) 
+--7 W wybranej tabeli zdefiniowaæ „wewnetrzne” ograniczenie klucza obcego 
 alter table emp 
 add constraint manager_id_fk
 foreign key (manager_id)
 references emp(id);
 
---8 We wszystkich tabelach wprowadziæ przyk³adowe dane.Utworzyæ odpowiedni skrypt ³aduj¹cy „sensowne” dane, tzn. przyk³adowe imiona, nazwiska, nazwy, daty itp. 
+--8 We wszystkich tabelach wprowadzic przykladowe dane.Utworzyc odpowiedni skrypt laduj¹cy „sensowne” dane, tzn. przykladowe imiona, nazwiska, nazwy, daty itp. 
 
 --wartosci do tabeli EMP
 INSERT INTO emp VALUES (
@@ -171,17 +171,17 @@ INSERT INTO cards VALUES(
 INSERT INTO cards VALUES(
     1126224457432976,TO_DATE('31-03-2021','dd-mm-yyyy'),412,22654500000000432156432769);
     
---9 Wyœwietliæ zawartoœæ wybranej tabeli.
+--9 Wyswietlic zawartosc wybranej tabeli.
 select * from emp;
 
---10 Dokonaæ próby zmiany wybranych danych wed³ug opracowanego przez siebie schematu
+--10 Dokonaæ proby zmiany wybranych danych wed³ug opracowanego przez siebie schematu
 update emp
   set first_name='Kacper'
     where ID=1;
---11 Ponownie wyœwietliæ zawartoœæ tabeli
+--11 Ponownie wyswietlic zawartosc tabeli
 select * from emp;
 
---12 Wykorzystuj¹c skrypt SUMMIT.SQL utworzyæ jedn¹ ze zdefiniowanych w nim tabeloraz wype³niæ j¹ odpowiedni¹ treœci¹ 
+--12 Wykorzystujac skrypt SUMMIT.SQL utworzyc jedna ze zdefiniowanych w nim tabel oraz wypelnic j¹ odpowiednia trescia 
 CREATE TABLE emp_another 
 (id                         NUMBER(7) 
    CONSTRAINT emp_id_nn NOT NULL,
@@ -279,10 +279,10 @@ INSERT INTO emp_another VALUES (
    to_date('22-MAJ-2015', 'dd-mon-yyyy'), NULL, 7, 'Stock Clerk',
    42, 795, NULL);
 
---13 Napisaæ polecenie, które umo¿liwi przekopiowanie wybranych danych z tabeli pochodz¹cej ze skryptu SUMMIT do jednej z w³asnych tabel.
+--13 Napisac polecenie, które umozliwi przekopiowanie wybranych danych z tabeli pochodz¹cej ze skryptu SUMMIT do jednej z wlasnych tabel.
 INSERT INTO emp select id,first_name,last_name,title,salary,start_date,manager_id from emp_another where title like 'Stock Clerk';
 update  emp 
 set title ='Cleaner' where title like 'Stock Clerk';
 
---13 Sprawdziæ zawartoœæ tak zmodyfikowanej tabeli w³asnej
+--13 Sprawdzic zawartosc tak zmodyfikowanej tabeli wlasnej
 select* from emp;
